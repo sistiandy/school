@@ -8,11 +8,18 @@ class Student extends CI_Controller {
         $this->load->model('Student_model');
     }
 
-	public function index()
-	{
+    public function index()
+    {
         $data['student'] = $this->Student_model->get();
 
-        $data['page'] = 'student/list';
+        $data['main'] = 'student/list';
+        $this->load->view('layout', $data);
+    }
+
+	public function add()
+	{
+
+        $data['main'] = 'student/add';
 		$this->load->view('layout', $data);
 	}
 }

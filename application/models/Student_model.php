@@ -18,9 +18,9 @@ class Student_model extends CI_Model {
     // Get From Databases
     function get($params = array())
     {
-        if(isset($params['id']))
+        if(isset($params['student_id']))
         {
-            $this->db->where('student.student_id', $params['id']);
+            $this->db->where('student.student_id', $params['student_id']);
         }
 
         $this->db->order_by('student_id', 'desc');
@@ -29,7 +29,7 @@ class Student_model extends CI_Model {
         $this->db->select('student.student_id, student_name, student_address');
         $res = $this->db->get('student');
 
-        if(isset($params['id']))
+        if(isset($params['student_id']))
         {
             return $res->row_array();
         }
