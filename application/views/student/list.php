@@ -31,8 +31,8 @@
                     <th>AKSI</th>
                 </tr>
                 <?php
-                if (!empty($student)) {
-                    foreach ($student as $row) {
+                if (!empty($students)) {
+                    foreach ($students as $row) {
                         ?>  
                         <tr>
                             <td >
@@ -43,8 +43,7 @@
                             <td ><?php echo $row['student_address']; ?></td>
                             <td >
                                 <span>
-                                    <a href="<?php echo site_url('user/edit/'.$row['user_id']) ?>" class="btn btn-flat btn-xs btn-success"> <i class="fa fa-edit"></i></a>
-                                    <button type="button" onclick="doDelete(<?php echo $row['user_id'] ?>, '<?php echo $row['user_name'] ?>', 'user')" class="btn btn-flat btn-xs btn-danger"> <i class="fa fa-trash"></i></button>
+                                    <a href="<?php echo site_url('student/edit/'.$row['student_id']) ?>" class="btn btn-flat btn-xs btn-success"> <i class="fa fa-edit"></i></a>
                                 </span>
                             </td>
                         </tr>
