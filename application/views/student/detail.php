@@ -20,6 +20,7 @@
             </div>
             <div class="box-tools">
               <a href="<?php echo site_url('student') ?>" class="btn btn-warning btn-sm"> <i class="fa fa-arrow-circle-o-left"></i> Kembali</a>
+              <a href="<?php echo site_url('student/delete/'.$student['student_id']) ?>" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i> Hapus</a>
           </div>
       </div>
       <div class="box-body">

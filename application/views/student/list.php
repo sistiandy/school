@@ -44,6 +44,7 @@
                             <td >
                                 <span>
                                     <a href="<?php echo site_url('student/edit/'.$row['student_id']) ?>" class="btn btn-flat btn-xs btn-success"> <i class="fa fa-edit"></i></a>
+                                    <a href="<?php echo site_url('student/delete/'.$row['student_id']) ?>" class="btn btn-flat btn-xs btn-danger"> <i class="fa fa-trash"></i></a>
                                 </span>
                             </td>
                         </tr>

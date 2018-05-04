@@ -35,11 +35,38 @@ class Student extends CI_Controller {
         }
     }
 
+    public function edit($id)
+    {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('student_name', 'Nama', 'trim|required');
+        if ($_POST AND $this->form_validation->run() == TRUE) {
+
+            $params['student_id'] = $this->input->post('student_id');
+            $params['student_name'] = $this->input->post('student_name');
+            $params['student_address'] = $this->input->post('student_address');
+            $status = $this->Student_model->add($params);
+            redirect('student');
+        }else{
+
+        $data['student'] = $this->Student_model->get(array('student_id' => $id));
+        $data['main'] = 'student/edit';
+        $this->load->view('layout', $data);
+
+        }
+    }
+
     public function detail($id =  null)
     {
         $data['student'] = $this->Student_model->get(array('student_id' => $id));
 
         $data['main'] = 'student/detail';
         $this->load->view('layout', $data);
+    }
+
+    public function delete($id =  null)
+    {
+        $data['student'] = $this->Student_model->delete($id);
+        redirect('student');
     }
 }
