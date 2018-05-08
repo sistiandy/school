@@ -66,7 +66,14 @@ class Student extends CI_Controller {
 
     public function delete($id =  null)
     {
+        if($_POST){
         $data['student'] = $this->Student_model->delete($id);
         redirect('student');
+    }else{
+        $data['student'] = $this->Student_model->get(array('student_id' => $id));
+
+        $data['main'] = 'student/delete';
+        $this->load->view('layout', $data);
+    }
     }
 }
